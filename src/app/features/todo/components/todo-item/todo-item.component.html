@@ -1,0 +1,9 @@
+<div>
+    <li [ngClass]="{ completed: todo.completed }">
+        <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete()" />
+        <span [contentEditable]="editing" (blur)="updateTitle($event)" (click)="startEditing()">
+          {{ todo.title }}
+        </span>
+        <button (click)="delete.emit(todo.id)">Delete</button>
+      </li>
+</div>

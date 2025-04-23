@@ -1,0 +1,11 @@
+<div>
+    <h2>Todo List</h2>
+    <input [(ngModel)]="newTodo" (keyup.enter)="addTodo()" placeholder="Add a task" />
+    @if (todos().length === 0) {
+      <p>No todos yet!</p>
+    }
+    @for (todo of todos(); track todo.id) {
+      <app-todo-item [todo]="todo" (update)="updateTodo($event)" (delete)="deleteTodo($event)" />
+    }
+    <app-todo-filter (filter)="setFilter($event)" />
+</div>
